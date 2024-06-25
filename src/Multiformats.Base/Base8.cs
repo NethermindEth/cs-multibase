@@ -6,7 +6,7 @@ namespace Multiformats.Base
 {
     internal class Base8 : Multibase
     {
-        private static readonly char[] _alphabet = {'0', '1', '2', '3', '4', '5', '6', '7'};
+        private static readonly char[] _alphabet = { '0', '1', '2', '3', '4', '5', '6', '7' };
 
         protected override string Name => "base8";
         protected override char Prefix => '7';

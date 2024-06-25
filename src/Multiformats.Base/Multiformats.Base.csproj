@@ -3,19 +3,19 @@
   <PropertyGroup>
     <Description>Multiformat base encodings</Description>
     <Copyright>Copyright © tabrath 2018</Copyright>
-    <AssemblyTitle>Multiformats.Base</AssemblyTitle>
-    <VersionPrefix>2.0.2</VersionPrefix>
+    <AssemblyTitle>Nethermind.Multiformats.Base</AssemblyTitle>
     <Authors>tabrath</Authors>
     <TargetFramework>net8.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AssemblyName>Multiformats.Base</AssemblyName>
-    <PackageId>Multiformats.Base</PackageId>
+    <AssemblyName>Nethermind.Multiformats.Base</AssemblyName>
+    <PackageId>Nethermind.Multiformats.Base</PackageId>
     <PackageTags>multiformats multibase base2 base8 base10 base16 base32 base58 base64 z-base32</PackageTags>
-    <PackageIconUrl>https://cdn.rawgit.com/multiformats/website/116894f6/favicon.png</PackageIconUrl>
-    <PackageLicenseUrl>https://github.com/multiformats/cs-multibase/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageIcon>favicon.png</PackageIcon>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/multiformats/cs-multibase</RepositoryUrl>
-    <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
+    <SourceRevisionId Condition="'$(Commit)' != ''">$(Commit.Substring(0, 8))</SourceRevisionId>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -45,6 +45,12 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\..\favicon.png" Pack="true" PackagePath="\"/>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>

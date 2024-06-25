@@ -31,7 +31,7 @@ namespace Multiformats.Base
 
         public override string Encode(byte[] bytes)
         {
-            var big = new BigInteger(bytes.Reverse().Concat(new byte[]{0x00}).ToArray());
+            var big = new BigInteger(bytes.Reverse().Concat(new byte[] { 0x00 }).ToArray());
             return new string(LeadingNulls(bytes).ToArray()) + big.ToString();
         }
     }

@@ -1,56 +1,36 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Multiformat base encodings</Description>
-    <Copyright>Copyright © tabrath 2018</Copyright>
-    <AssemblyTitle>Nethermind.Multiformats.Base</AssemblyTitle>
-    <Authors>tabrath</Authors>
     <TargetFramework>net8.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AssemblyName>Nethermind.Multiformats.Base</AssemblyName>
-    <PackageId>Nethermind.Multiformats.Base</PackageId>
-    <PackageTags>multiformats multibase base2 base8 base10 base16 base32 base58 base64 z-base32</PackageTags>
-    <PackageIcon>favicon.png</PackageIcon>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/multiformats/cs-multibase</RepositoryUrl>
-    <SourceRevisionId Condition="'$(Commit)' != ''">$(Commit.Substring(0, 8))</SourceRevisionId>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
-    <Optimize>false</Optimize>
-    <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>portable</DebugType>
-    <Optimize>true</Optimize>
-    <DefineConstants>$(DefineConstants)</DefineConstants>
-  </PropertyGroup>
-  
   <PropertyGroup>
-  <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
-  <PublishRepositoryUrl>true</PublishRepositoryUrl>
-  <!-- Optional: Embed source files that are not tracked by the source control manager in the PDB -->
-  <EmbedUntrackedSources>false</EmbedUntrackedSources>
-  <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
-  <IncludeSymbols>true</IncludeSymbols>
-  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-  <AllowedOutputExtensionsInPackageBuildOutputFolder>.pdb;$(AllowedOutputExtensionsInPackageBuildOutputFolder)</AllowedOutputExtensionsInPackageBuildOutputFolder>
-</PropertyGroup>
+    <Authors>Nethermind, Trond Bråthen</Authors>
+    <Copyright>Demerzel Solutions Limited, Trond Bråthen</Copyright>
+    <Description>Multibase implementation in C#</Description>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <PackageId>Nethermind.Multiformats.Base</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>multibase multiformats</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/NethermindEth/cs-multibase</RepositoryUrl>
+    <SourceRevisionId Condition="'$(Commit)' != ''">$(Commit)</SourceRevisionId>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
-    <None Include="..\..\favicon.png" Pack="true" PackagePath="\"/>
-    <None Include="..\..\LICENSE" Pack="true" PackagePath="\"/>
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>

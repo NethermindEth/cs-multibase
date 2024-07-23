@@ -1,4 +1,4 @@
-﻿namespace Multiformats.Base
+namespace Multiformats.Base
 {
     internal class Base64Padded : Base64
     {

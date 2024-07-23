@@ -1,4 +1,4 @@
-﻿namespace Multiformats.Base
+namespace Multiformats.Base
 {
     internal enum LetterCasing
     {

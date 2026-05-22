@@ -17,9 +17,11 @@ As stated in the specs, multibase encoded strings are prefixed with an identifie
 
 ## Install
 
-  PM> Install-Package Multiformats.Base
+    PM> Install-Package Nethermind.Multiformats.Base
 
-  CLI> dotnet install Multiformats.Base
+---
+
+    dotnet add package Nethermind.Multiformats.Base
 
 ## Usage
 ``` csharp

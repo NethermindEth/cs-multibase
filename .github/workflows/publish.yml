@@ -26,7 +26,8 @@ jobs:
       id-token: write
     env:
       BUILD_CONFIG: Release
-      NUGET_HOST: ${{ inputs.feed == 'Staging' && 'https://int.nugettest.org' || 'https://www.nuget.org' }}
+      NUGET_URL: ${{ inputs.feed == 'Staging' && 'https://int.nugettest.org' || 'https://www.nuget.org' }}
+      NUGET_SOURCE: ${{ inputs.feed == 'Staging' && 'https://apiint.nugettest.org' || 'https://api.nuget.org' }}/v3/index.json
 
     steps:
 
@@ -53,11 +54,11 @@ jobs:
         id: login
         with:
           user: ${{ secrets.NUGET_USER }}
-          audience: ${{ env.NUGET_HOST }}
-          token-service-url: ${{ env.NUGET_HOST }}/api/v2/token
+          audience: ${{ env.NUGET_URL }}
+          token-service-url: ${{ env.NUGET_URL }}/api/v2/token
 
       - name: Publish
         run: |
           dotnet pack . -c ${{ env.BUILD_CONFIG }} --no-build -p:Version=${{ github.event.inputs.version }}
           dotnet nuget push **/*.nupkg \
-            -k "${{ steps.login.outputs.NUGET_API_KEY }}" -s ${{ env.NUGET_HOST }}/api/v2/package
+            -k "${{ steps.login.outputs.NUGET_API_KEY }}" -s ${{ env.NUGET_SOURCE }}
